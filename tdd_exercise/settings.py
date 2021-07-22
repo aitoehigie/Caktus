@@ -123,3 +123,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'tdd_exercise', 'static')]
+
+# Configure DEFAULT_AUTO_FIELD in settings to use BigAutoField for Django 3.2+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
