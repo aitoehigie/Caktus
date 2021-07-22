@@ -15,7 +15,7 @@ def drill(request):
     random_clue = random_selector()
     clue_length = len(random_clue.entry.entry_text)
     clue_puzzle = random_clue.puzzle.title
-    return render(request, 'xword_data/drill.html', {'clue_length': clue_length, 'clue_puzzle': clue_puzzle})
+    return render(request, 'xword_data/drill.html', {'clue_length': clue_length, 'clue_puzzle': clue_puzzle, 'clue_id':random_clue.id})
 
 def answer(request):
     return HttpResponse('Hello from answer')

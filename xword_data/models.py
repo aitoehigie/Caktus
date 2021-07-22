@@ -9,7 +9,7 @@ class Puzzle(models.Model):
     publisher = models.CharField(max_length=12)
     
     def __str__(self):
-        return self.title
+        return self.publisher + str(self.date)
     
 class Entry(models.Model):
     entry_text = models.CharField(max_length=50, unique=True)
@@ -22,3 +22,6 @@ class Clue(models.Model):
     puzzle = models.ForeignKey(Puzzle, on_delete=models.CASCADE)
     clue_text = models.CharField(max_length=512)
     theme = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.entry.entry_text + self.clue_text

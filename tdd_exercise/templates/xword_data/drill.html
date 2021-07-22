@@ -1,1 +1,8 @@
-{% extends 'templates/base.html' %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="font-bold text-5xl">Welcome to the Crossword Exercise</h1>
+<h3>The Clue is of length {{ clue_length }} and is from the {{ clue_puzzle }}.</h3>
+<a href="{% url 'xword-answer' clue_id %}"><p class="float-right">Stumped? View Answer</p></a>
+{% endblock content %}
