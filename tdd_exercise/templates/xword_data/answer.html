@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="font-bold text-5xl">Answers to the Crossword Exercise</h1>
+<!-- component -->
+<!-- responsive table-->
+{% if clues_count == 1 %}
+<h2>only appearance of this clue</h2>
+<h4>Clue Text: {{ clues.clue_text }}</h4>
+<h4>Entry Text: {{ clues.entry.entry_text }}</h4>
+<div class="mt-2">
+    {% else %}
+    <table class="max-w-5xl mx-auto table-auto">
+      <thead class="justify-between">
+        <tr class="bg-green-600">
+          <th class="px-16 py-2">
+            <span class="text-gray-100 font-semibold">Clue</span>
+          </th>
+          <th class="px-16 py-2">
+            <span class="text-gray-100 font-semibold">Entry</span>
+          </th>
+      </thead>
+      <tbody class="bg-gray-200">
+          {% for clue in clues %}
+        <tr class="bg-white border-b-2 border-gray-200">
+          <td class="px-16 py-2">
+            <span>clue.clue_text</span>
+          </td>
+          <td class="px-16 py-2">
+            <span>clue.entry.entry_text</span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
+{% endblock content %}

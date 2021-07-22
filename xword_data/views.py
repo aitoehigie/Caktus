@@ -10,7 +10,7 @@ def random_selector():
     maximum_id = Clue.objects.last().id
     random_clue = None
     while random_clue is None:
-        random_id = randint(1, maximum_id)
+        random_id = randint(0, maximum_id)
         try:
             random_clue = Clue.objects.get(id=random_id)
         except Clue.DoesNotExist:
@@ -41,4 +41,6 @@ def drill(request):
         
 
 def answer(request, clue_id):
-    return HttpResponse(clue_id)
+    clues = Clue.objects.all().select_related("entry")
+    clues_count = clues.count()
+    return render(request, 'xword_data/answer.html', {'clues_count': clues_count, 'clues': clues})
